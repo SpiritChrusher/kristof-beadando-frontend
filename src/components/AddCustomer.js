@@ -2,20 +2,20 @@ import {useState} from 'react'
 
 const AddCustomer = ({ONAdd}) => {
 	
-	const [firstName, setfirstName] = useState('')
-	const [lastName, setlastName] = useState('')
-	const [Age, setAge] = useState (0)
+	const [firstName, setFirstName] = useState('')
+	const [lastName, setLastName] = useState('')
+	const [age, setAge] = useState (0)
 	
 	const onSubmit = (e) => {
 	e.preventDefault()
 	
-	if(!firstName || !lastName || Age === 0){
-		alert('Please add a customer!')
+	if(!firstName || !lastName || age <= 6 || age >= 99){
+		alert('Please give valid customer informations!')
 		return
 	}
-	ONAdd({firstName, lastName, Age})
-	setfirstName('')
-	setlastName('') 
+	ONAdd({firstName, lastName, age})
+	setFirstName('')
+	setLastName('') 
 	setAge(0)
 	}
 	
@@ -25,19 +25,19 @@ return (
 
 <label>FirstName</label>
 <input type='text' placeholder='Add Customer' 
-value={firstName} onChange={ (e) => setfirstName(e.target.value)}/>
+value={firstName} onChange={ (e) => setFirstName(e.target.value)}/>
 </div>
 
 <div className='form-control'>
 <label>LastName</label>
 <input type='text' placeholder='Add LastName' 
-value={lastName} onChange={ (e) => setlastName(e.target.value)}/>
+value={lastName} onChange={ (e) => setLastName(e.target.value)}/>
 </div>
 
 <div className='form-control'>
 <label>Age</label>
 <input type='number'
-value={Age} onChange={ (e) => setAge(e.target.value)}/>
+value={age} onChange={ (e) => setAge(e.target.value)}/>
 </div>
 
 <input type='submit' value='Save Customer' 

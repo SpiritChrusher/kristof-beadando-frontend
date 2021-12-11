@@ -12,7 +12,7 @@ const getCustomers = async () => {
   const data = await res.json()
   setCustomers(data)}
   getCustomers()
-}, [])
+})
 
 /*
 const getCustomersFetch = async () => {
@@ -30,29 +30,28 @@ const fetchCustomers = async() => {
 
 const addCustomer = async (requestCustomer) => {
 	const res = await fetch(
-		"http://localhost:8100/add", {
+		"http://localhost:8100/addjson", {
 			method: 'POST',
 			headers: { 
 				'Content-type': 'application/json'
 			},
-			body: requestCustomer//JSON.stringify(requestCustomer)
+			body: JSON.stringify(requestCustomer)
 		})
 		
 		const data = await res.json()
 		console.log(requestCustomer)
-		setCustomers([...customers,data])
   }
 
   return (
     <div className="App">
-      <p>Kristof's Application</p> 
-      <h1>Customers</h1>
+      <header id="header">Kristof's Application</header> 
+      <h2>Customers</h2>
 {customers && (
   <div className="customers">
 
     {customers.map((cust) => (
       <div>
-        <h2>Id: {cust.id},  {cust.firstName} {cust.lastName} is {cust.age} years old</h2>
+        <h3>Id: {cust.id},  {cust.firstName} {cust.lastName} is {cust.age} years old</h3>
       </div>
     ))}
 
