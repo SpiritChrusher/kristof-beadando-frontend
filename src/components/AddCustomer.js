@@ -14,6 +14,7 @@ const AddCustomer = ({ONAdd}) => {
 		return
 	}
 	ONAdd({firstName, lastName, age})
+	
 	setFirstName('')
 	setLastName('') 
 	setAge(0)
