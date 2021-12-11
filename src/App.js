@@ -14,20 +14,6 @@ const getCustomers = async () => {
   getCustomers()
 })
 
-/*
-const getCustomersFetch = async () => {
-  const response = await fetch("http://localhost:8110/employees");
-  const jsonData = await response.json();
-  setCustomers(jsonData);
-};
-
-const fetchCustomers = async() => {
-  const res = await fetch("http://localhost:8110/employees")
-  const data = await res.json()
-  return data
-}
-*/
-
 const addCustomer = async (requestCustomer) => {
 	const res = await fetch(
 		"http://localhost:8100/addjson", {
