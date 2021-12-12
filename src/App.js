@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import {BrowserRouter, Route, Routes, NavLink} from 'react-router-dom'; 
 import UpdateCustomer from './components/UpdateCustomer';
 import './App.css';
 import AddCustomer from './components/AddCustomer';
 import DeleteCustomer from './components/DeleteCustomer';
+import FindCustomer from './components/FindCustomer';
 
 const App = () => {
 
@@ -20,9 +20,16 @@ const App = () => {
   })
 
   const findCustomer = async (id) => {
-    const res = await fetch("http://localhost:8100/find/"+id)
+    const res = await fetch("http://localhost:8100/findjson/", {
+      method: 'POST',
+      headers: { 
+          'Content-type': 'application/json'
+      },
+      body: id
+  })
     const data = await res.json()
     setCustomer(data)
+    console.log(customer)
   }
 
   const addCustomer = async (requestCustomer) => {
@@ -52,11 +59,11 @@ const App = () => {
     console.log(JSON.stringify(id))   
     const res = await fetch(
       "http://localhost:8100/deletejson",{
-        method: 'GET',
+        method: 'POST',
         headers: {
           'Content-type': 'application/json'
         },
-        body: JSON.stringify(id)
+        body: id
       })
     }
 
@@ -71,7 +78,6 @@ const App = () => {
     }
 
   return (
-    <BrowserRouter>
     <div className="App">
       <header id="header">Kristof's Application</header>
       <h2>Customers</h2>
@@ -94,7 +100,6 @@ const App = () => {
     <br></br>
     <button onClick={deleteAllCustomer}>Delete Customers</button>
     </div>
-    </BrowserRouter>
   );
 }
 

@@ -19,7 +19,6 @@
 body {
   background-color: #29457b;
   min-height: 10vh;
-  max-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

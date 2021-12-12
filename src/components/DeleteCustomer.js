@@ -7,7 +7,13 @@ const DeleteCustomer = ({ONDelete}) => {
     const onSubmit = (e) => {
         e.preventDefault()
 
-    ONDelete({id})
+    if(id < 1){
+        alert('Please give valid customer informations!')
+        return
+    }
+
+        
+    ONDelete(id)
 
 	setId(0)
     }
