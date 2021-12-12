@@ -3,7 +3,6 @@ import UpdateCustomer from './components/UpdateCustomer';
 import './App.css';
 import AddCustomer from './components/AddCustomer';
 import DeleteCustomer from './components/DeleteCustomer';
-import FindCustomer from './components/FindCustomer';
 
 const App = () => {
 
