@@ -6,9 +6,7 @@ import DeleteCustomer from './components/DeleteCustomer';
 
 const App = () => {
 
-  const [customer, setCustomer] = useState(null)
-
-  const [ customers, setCustomers] = useState([])
+  const [customers, setCustomers] = useState([])
 
   useEffect (() => {
   const getCustomers = async () => {
@@ -17,19 +15,6 @@ const App = () => {
     setCustomers(data)}
     getCustomers()
   })
-
-  const findCustomer = async (id) => {
-    const res = await fetch("http://localhost:8100/findjson/", {
-      method: 'POST',
-      headers: { 
-          'Content-type': 'application/json'
-      },
-      body: id
-  })
-    const data = await res.json()
-    setCustomer(data)
-    console.log(customer)
-  }
 
   const addCustomer = async (requestCustomer) => {
     const res = await fetch(
